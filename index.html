@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incrementing Number</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #counter {
+            font-size: 2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>What day of february is it?</h1>
+    <p>Number of days since the beginning of february:</p>
+    <p id="counter"></p>
+
+    <script>
+        // Function to update the counter
+        function updateCounter() {
+            // Set the start date
+            const startDate = new Date('2022-02-01'); // Change this to your desired start date
+            const currentDate = new Date();
+
+            // Calculate the difference in days
+            const timeDiff = currentDate - startDate;
+            const daysPassed = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+
+            // Update the counter element
+            document.getElementById('counter').innerText = daysPassed;
+        }
+
+        // Update the counter on page load
+        updateCounter();
+
+        // Update the counter every day
+        setInterval(updateCounter, 24 * 60 * 60 * 1000); // Update every 24 hours
+    </script>
+</body>
+</html>
